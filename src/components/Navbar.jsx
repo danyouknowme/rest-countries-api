@@ -3,16 +3,21 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './navbar.scss';
 
-const Navbar = (props) => {
+const Navbar = ({ theme, setTheme }) => {
+	const changeTheme = () => {
+		setTheme(theme === "light" ? "dark" : "light");
+		localStorage.setItem("theme", JSON.stringify(theme === "light" ? "dark" : "light"));
+	}
+
 	return (
 		<div className="navbar">
-			<div className="wrapper">
+			<div className={`wrapper ${theme === "dark" && 'dark'}`}>
 				<div className="title">
 					<Link to='/' className="home">
 						<span>Where in the world?</span>
 					</Link>
 				</div>
-				<div className="theme-switcher">
+				<div className="theme-switcher" onClick={changeTheme}>
 					<FontAwesomeIcon icon={['far', 'moon']} />
 					<span>Dark Mode</span>
 				</div>
