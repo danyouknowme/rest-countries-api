@@ -1,0 +1,121 @@
+.search {
+    width: 100%;
+    height: 100%;
+
+    .wrapper {
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 0;
+        background-color: hsl(0, 0%, 98%);
+
+        &.dark {
+            background-color: hsl(207, 26%, 17%);
+
+            .searchbox {
+                background-color: hsl(209, 23%, 22%);
+                box-shadow: 0px 0px 4px 2px rgba(32,44,55,0.75);
+
+                svg {
+                    path {
+                        fill: hsl(0, 0%, 100%);
+                    }
+                }
+
+                input {
+                    background-color: hsl(209, 23%, 22%);
+                    color: hsl(0, 0%, 100%);
+
+                    &::placeholder {
+                        color: hsl(0, 0%, 100%);
+                    }
+                }
+            }
+            
+            .filter {
+                box-shadow: 0px 0px 4px 2px rgba(32,44,55,0.75);
+                
+                select {
+                    background-color: hsl(209, 23%, 22%);
+                    color: hsl(0, 0%, 100%);
+                }
+            }
+        }
+
+        .searchbox {
+            margin-left: 100px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            height: 50px;
+            width: 450px;
+            box-shadow: 0px 0px 4px 0px rgba(194, 194, 194, 0.6);
+            background-color: #fff;
+            
+            svg {
+                flex: 1.5;
+
+                path {
+                    fill: hsl(0, 0%, 52%);
+                }
+            }
+
+            input {
+                flex: 8.5;
+                height: 90%;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                font-family: inherit;
+                font-size: 1rem;
+                color: hsl(0, 0%, 52%);
+            }
+        }
+
+        .filter {
+            margin-right: 100px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            height: 50px;
+            width: 210px;
+            box-shadow: 0px 0px 4px 0px rgba(194, 194, 194, 0.6);
+
+            select {
+                width: 100%;
+                height: 100%;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                font-family: inherit;
+                padding: 0 15px;
+                font-size: 1rem;
+
+                option {
+                    padding: 1px 5px;
+                    font-size: 0.9rem;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .search {
+        .wrapper {
+            flex-direction: column;
+            padding: 35px 0;
+
+            .searchbox {
+                margin: 0 auto;
+                width: 90%;
+            }
+
+            .filter {
+                margin: 15% 0 0 5%;
+            }
+        }
+    }
+}

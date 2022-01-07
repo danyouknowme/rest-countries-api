@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
+import Search from './Search';
 
 const Home = () => {
     const [theme, setTheme] = useState(() => {
@@ -12,6 +13,7 @@ const Home = () => {
     return (
         <>
             <Navbar theme={theme} setTheme={setTheme} />
+            <Search theme={theme} />
         </>
     )
 }
