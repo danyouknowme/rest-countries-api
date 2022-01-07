@@ -18,7 +18,9 @@ const Navbar = ({ theme, setTheme }) => {
 					</Link>
 				</div>
 				<div className="theme-switcher" onClick={changeTheme}>
-					<FontAwesomeIcon icon={['far', 'moon']} />
+					{theme === "dark" ? (
+						<FontAwesomeIcon icon={['fas', 'moon']} />
+					) : <FontAwesomeIcon icon={['far', 'moon']} /> }
 					<span>Dark Mode</span>
 				</div>
 			</div>
