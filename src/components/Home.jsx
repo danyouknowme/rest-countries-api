@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CountryContainer from './CountryContainer';
 import Navbar from './Navbar';
 import Search from './Search';
 
@@ -14,6 +15,7 @@ const Home = () => {
         <>
             <Navbar theme={theme} setTheme={setTheme} />
             <Search theme={theme} />
+            <CountryContainer theme={theme} />
         </>
     )
 }
