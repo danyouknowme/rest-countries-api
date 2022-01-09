@@ -6,14 +6,14 @@ const CardCountry = (props) => {
         <div className="card-country">
             <div className={`card-wrapper ${props.theme === "dark" ? "dark": ""}`}>
                 <div className="flag">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2560px-Flag_of_Germany.svg.png" alt="" />
+                    <img src={props.flag} alt="flag" />
                 </div>
                 <div className="desc">
-                    <h2>Germany</h2>
+                    <h2>{props.name}</h2>
                     <div className="another-data">
-                        <span><strong>Population:</strong> 81,770,900</span>
-                        <span><strong>Region:</strong> Europe</span>
-                        <span><strong>Capital:</strong> Berlin</span>
+                        <span><strong>Population:</strong> {props.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
+                        <span><strong>Region:</strong> {props.region}</span>
+                        <span><strong>Capital:</strong> {props.capital}</span>
                     </div>
                 </div>
             </div>
