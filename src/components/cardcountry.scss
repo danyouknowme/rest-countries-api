@@ -1,6 +1,8 @@
 .card-country {
     width: 100%;
     height: 100%;
+    cursor: pointer;
+    transition: all 0.2s;
 
     .card-wrapper {
         width: 258px;
@@ -44,5 +46,9 @@
             background-color: hsl(209, 23%, 22%);
             color: hsl(0, 0%, 100%);
         }
+    }
+
+    &:hover {
+        transform: scale(1.05);
     }
 }

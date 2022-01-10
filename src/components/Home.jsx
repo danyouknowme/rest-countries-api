@@ -10,12 +10,14 @@ const Home = () => {
 		localStorage.setItem("theme", JSON.stringify(initialValue || "light"));
         return initialValue || "light";
     });
+    const [region, setRegion] = useState("");
+    console.log(region);
 
     return (
         <>
             <Navbar theme={theme} setTheme={setTheme} />
-            <Search theme={theme} />
-            <CountryContainer theme={theme} />
+            <Search theme={theme} region={region} setRegion={setRegion} />
+            <CountryContainer theme={theme} region={region} />
         </>
     )
 }

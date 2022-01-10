@@ -8,20 +8,24 @@ const CountryContainer = (props) => {
     
     useEffect(() => {
         const fetchingData = async () => {
-            await axios.get(`https://restcountries.com/v2/all`)
+            let url;
+            if (!props.region) {
+                url = 'https://restcountries.com/v2/all'
+            } else {
+                url = `https://restcountries.com/v3.1/region/${props.region.toLowerCase()}`
+            }
+            await axios.get(url)
                 .then(response => setData(response.data))
                 .catch(error => console.log(error));
         }
         fetchingData();
-    }, [])
-
-    console.log(data);
+    }, [props.region])
 
     return (
         <div className="country-container">
             <div className={`wrapper ${props.theme === "dark" ? "dark" : ""}`}>
                 {data.map((country) => (
-                    <CardCountry theme={props.theme} name={country.name} flag={country.flag} population={country.population} region={country.region} capital={country.capital} />
+                    <CardCountry theme={props.theme} name={country.name} flag={country.flag} population={country.population} region={country.region} capital={country.capital} key={country.name}/>
                 ))}
             </div>
         </div>

@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './search.scss';
 
-const Search = ({ theme }) => {
-    const [region, setRegion] = useState("");
+const Search = ({ theme, region, setRegion }) => {
 
     const handleChange = (e) => {
         setRegion(e.target.value);
@@ -28,7 +27,7 @@ const Search = ({ theme }) => {
                     <select value={region} onChange={handleChange}>
                         <option value="" disabled>Filter by Region</option>
                         {options.map((option) => (
-                            <option value={option.value}>{option.value}</option>
+                            <option value={option.value} key={option.value}>{option.value}</option>
                         ))}
                     </select>
                 </div>
