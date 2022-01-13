@@ -12,17 +12,16 @@ const Home = () => {
         return initialValue || "light";
     });
     const [region, setRegion] = useState("");
-    const [country, setCountry] = useState("");
-    console.log(region);
+    const [searchTerm, setSearchTerm] = useState("");
 
     return (
         <>
             <Navbar theme={theme} setTheme={setTheme} />
-            <Search theme={theme} region={region} setRegion={setRegion} />
+            <Search theme={theme} region={region} setRegion={setRegion} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             {!region ? (
-                <CountryContainer theme={theme} />
+                <CountryContainer theme={theme} searchTerm={searchTerm} />
             ) :
-                <CountryByRegionContainer theme={theme} region={region} />
+                <CountryByRegionContainer theme={theme} region={region} searchTerm={searchTerm} />
             }
         </>
     )

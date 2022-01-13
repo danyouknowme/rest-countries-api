@@ -3,7 +3,8 @@
     height: 100%;
 
     .wrapper {
-        padding: 0 100px;
+        padding: 0 100px 100px;
+        min-height: calc(100vh - 332px);
         background-color: hsl(0, 0%, 98%);
         display: grid;
         grid-template-columns: auto auto auto auto;
