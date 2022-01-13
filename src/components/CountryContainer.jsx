@@ -18,7 +18,7 @@ const CountryContainer = (props) => {
         <div className="country-container">
             <div className={`wrapper ${props.theme === "dark" ? "dark" : ""}`}>
                 {(props.searchTerm ? countries : countryList).map((country, index) => (
-                    <Link to={`/1`} key={index}>
+                    <Link to={`/${country.name}`} key={index}>
                         <CardCountry theme={props.theme} name={country.name} flag={country.flag} population={country.population} region={country.region} capital={country.capital} />
                     </Link>
                 ))}
