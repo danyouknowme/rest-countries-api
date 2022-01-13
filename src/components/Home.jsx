@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CountryByRegionContainer from './CountryByRegionContainer';
 import CountryContainer from './CountryContainer';
 import Navbar from './Navbar';
 import Search from './Search';
@@ -11,13 +12,18 @@ const Home = () => {
         return initialValue || "light";
     });
     const [region, setRegion] = useState("");
+    const [country, setCountry] = useState("");
     console.log(region);
 
     return (
         <>
             <Navbar theme={theme} setTheme={setTheme} />
             <Search theme={theme} region={region} setRegion={setRegion} />
-            <CountryContainer theme={theme} region={region} />
+            {!region ? (
+                <CountryContainer theme={theme} />
+            ) :
+                <CountryByRegionContainer theme={theme} region={region} />
+            }
         </>
     )
 }

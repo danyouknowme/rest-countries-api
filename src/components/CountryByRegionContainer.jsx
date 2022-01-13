@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import CardCountry from './CardCountry';
-import { useGetAllCountriesQuery } from '../services/countryApi';
+import { Link } from 'react-router-dom';
+import { useGetCountriesByRegionQuery } from '../services/countryApi';
 import './countrycontainer.scss';
 
-const CountryContainer = (props) => {
-    const { data, isFetching } = useGetAllCountriesQuery();
+const CountryByRegionContainer = (props) => {
+    const { data, isFetching } = useGetCountriesByRegionQuery(props.region.toLowerCase());
 
     if (isFetching) return "Loading...";
-
+    
     return (
         <div className="country-container">
             <div className={`wrapper ${props.theme === "dark" ? "dark" : ""}`}>
@@ -22,4 +22,4 @@ const CountryContainer = (props) => {
     )
 }
 
-export default CountryContainer;
+export default CountryByRegionContainer

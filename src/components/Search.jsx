@@ -2,15 +2,19 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './search.scss';
 
-const Search = ({ theme, region, setRegion }) => {
+const Search = ({ theme, region, setRegion, country, setCountry }) => {
 
     const handleChange = (e) => {
         setRegion(e.target.value);
     }
 
+    const countryOnChange = (e) => {
+        console.log(e.target.value);
+    }
+
     const options = [
         { value: 'Africa' },
-        { value: 'America' },
+        { value: 'Americas' },
         { value: 'Asia' },
         { value: 'Europe' },
         { value: 'Oceania' },
@@ -21,7 +25,7 @@ const Search = ({ theme, region, setRegion }) => {
             <div className={`wrapper ${theme === "dark" && "dark"}`}>
                 <div className="searchbox">
                     <FontAwesomeIcon icon={['fas', 'search']} />
-                    <input type="text" placeholder="Search for a country..." />
+                    <input type="text" placeholder="Search for a country..." onChange={countryOnChange}/>
                 </div>
                 <div className="filter">
                     <select value={region} onChange={handleChange}>
