@@ -126,6 +126,21 @@
                     flex-wrap: nowrap;
                     margin: 20px 0 50px 30px;
                 }
+
+                .bottom {
+                    span {
+                        flex-direction: column;
+
+                        strong {
+                            width: 100%;
+                        }
+
+                        .badge {
+                            width: 100%;
+                            margin: 15px 0 0 0;
+                        }
+                    }
+                }
             }
         }
     }

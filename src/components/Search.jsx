@@ -39,12 +39,6 @@ const Search = ({ theme, region, setRegion, searchTerm, setSearchTerm }) => {
                             <span onClick={() => handleChange(region.value)} className>{region.value}</span>
                         ))}
                     </div>
-                    {/* <select value={region} onChange={handleChange}>
-                        <option value="" disabled>Filter by Region</option>
-                        {options.map((option) => (
-                            <option value={option.value} key={option.value}>{option.value}</option>
-                        ))}
-                    </select> */}
                 </div>
             </div>
         </div>
