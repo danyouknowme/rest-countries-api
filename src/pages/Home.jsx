@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import CountryByRegionContainer from './CountryByRegionContainer';
-import CountryContainer from './CountryContainer';
-import Navbar from './Navbar';
-import Search from './Search';
+import CountryByRegionContainer from '../components/CountryContainer/CountryByRegionContainer';
+import CountryContainer from '../components/CountryContainer/CountryContainer';
+import Navbar from '../components/Navbar/Navbar';
+import Search from '../components/Search/Search';
 
 const Home = () => {
     const [theme, setTheme] = useState(() => {

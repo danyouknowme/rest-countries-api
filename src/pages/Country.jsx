@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetCountryByNameQuery } from '../services/countryApi';
-import Navbar from './Navbar';
-import Back from './Back';
-import CountryData from './CountryData';
+import Navbar from '../components/Navbar/Navbar';
+import Back from '../components/Back/Back';
+import CountryData from '../components/CountryData/CountryData';
 
 const Country = () => {
     const { country } = useParams();

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CardCountry from './CardCountry';
-import { useGetAllCountriesQuery } from '../services/countryApi';
+import CardCountry from '../CardCountry/CardCountry';
+import { useGetAllCountriesQuery } from '../../services/countryApi';
 import './countrycontainer.scss';
 
 const CountryContainer = (props) => {
