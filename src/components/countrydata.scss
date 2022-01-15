@@ -1,0 +1,132 @@
+.country-data {
+    width: 100%;
+    height: 100%;
+
+    .wrapper {
+        width: 100vw;
+        min-height: calc(100vh - 249px);    
+        background-color: hsl(0, 0%, 98%);
+        display: flex;
+
+        &.dark {
+            background-color: hsl(207, 26%, 17%);
+            color: hsl(0, 0%, 100%);
+
+            .data {
+                .bottom {
+                    span {
+                        .badge {
+                            span {
+                                background-color: hsl(207, 26%, 17%);
+                                color: hsl(0, 0%, 98%);
+                                box-shadow: 0px 0px 8px 0px rgba(20, 20, 20, 0.75);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .flag {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+
+            .image-container {
+                width: calc(100% - 100px);
+                margin-left: 100px;
+                height: 380px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .data {
+            flex: 1;
+            height: 380px;
+            // background-color: hsl(0, 0%, 98%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            div {
+                margin-left: 100px;
+            }
+            
+            .mid {
+                height: 160px;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                margin: 20px 0 50px 100px;
+                
+                span {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .bottom {
+                span {
+                    display: flex;
+
+                    strong {
+                        width: 25%;
+                    }
+
+                    .badge {
+                        width: 75%;
+                        margin-left: 10px;
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        span {
+                            display: flex;
+                            align-items: center;
+                            font-size: 0.8rem;
+                            margin: 5px 3px;
+                            padding: 3px 20px;
+                            border-radius: 3px;
+                            background-color: hsl(0, 0%, 100%);
+                            color: hsl(200, 15%, 8%);
+                            box-shadow: 0px 0px 8px 0px rgba(165, 165, 165, 0.75);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .country-data {
+        .wrapper {
+            flex-direction: column;
+
+            .flag {
+                .image-container {
+                    width: calc(100% - 60px);
+                    margin-left: 0;
+                    height: 250px;
+                }
+            }
+
+            .data {
+                margin: 15px 0 30px;
+
+                div {
+                    margin-left: 30px;
+                }
+
+                .mid {
+                    height: 100%;
+                    flex-wrap: nowrap;
+                    margin: 20px 0 50px 30px;
+                }
+            }
+        }
+    }
+}
