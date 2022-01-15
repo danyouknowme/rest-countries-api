@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './countrydata.scss';
 
@@ -49,10 +50,14 @@ const CountryData = ({ theme, countryData }) => {
                         <span>
                             <strong>Border Countries: </strong>
                             <div className="badge">
-                                {!borderCountries ? (
-                                    <span>{"-"}</span>
-                                ) : borderCountries.map((country) => (
-                                    <span key={country}>{country}</span>
+                                {borderCountries[0] === "Not Have" ? (
+                                    <Link to="/">
+                                        <span>-</span>
+                                    </Link>
+                                ): borderCountries.map((country) => (
+                                    <Link to={`/${country}`} key={country}>
+                                        <span>{country}</span>
+                                    </Link>
                                 ))}
                             </div>
                         </span>
