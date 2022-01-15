@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './search.scss';
 
 const Search = ({ theme, region, setRegion, searchTerm, setSearchTerm }) => {
+    const [openMenu, setOpenMenu] = useState(false);
 
-    const handleChange = (e) => {
-        setRegion(e.target.value);
-        setSearchTerm("");
+    const handleChange = (region) => {
+        setRegion(region);
+        setOpenMenu(false)
     }
 
     const countryOnChange = (e) => {
@@ -28,13 +29,22 @@ const Search = ({ theme, region, setRegion, searchTerm, setSearchTerm }) => {
                     <FontAwesomeIcon icon={['fas', 'search']} />
                     <input type="text" placeholder="Search for a country..." onChange={countryOnChange} value={searchTerm}/>
                 </div>
-                <div className="filter">
-                    <select value={region} onChange={handleChange}>
+                <div className="filter" onClick={() => setOpenMenu(!openMenu)}>
+                    <div className="select">
+                        <span>{!region ? "Filter by Region" : region}</span>
+                        <FontAwesomeIcon icon={['fas', 'chevron-down']} />
+                    </div>
+                    <div className={`options ${openMenu && 'active'}`}>
+                        {options.map((region) => (
+                            <span onClick={() => handleChange(region.value)} className>{region.value}</span>
+                        ))}
+                    </div>
+                    {/* <select value={region} onChange={handleChange}>
                         <option value="" disabled>Filter by Region</option>
                         {options.map((option) => (
                             <option value={option.value} key={option.value}>{option.value}</option>
                         ))}
-                    </select>
+                    </select> */}
                 </div>
             </div>
         </div>
