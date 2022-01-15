@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import { useGetCountryByNameQuery } from '../services/countryApi';
 import Navbar from './Navbar';
 import Back from './Back';
+import CountryData from './CountryData';
 
 const Country = () => {
     const { country } = useParams();
     const { data: countryData, isFetching } = useGetCountryByNameQuery(country);
-    console.log(countryData);
 
     const [theme, setTheme] = useState(() => {
         const saved = localStorage.getItem("theme");
@@ -22,6 +22,7 @@ const Country = () => {
         <>
             <Navbar theme={theme} setTheme={setTheme} />
             <Back theme={theme} />
+            <CountryData countryData={countryData[0]} theme={theme} />
         </>
     )
 }
