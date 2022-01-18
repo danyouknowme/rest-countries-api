@@ -5,24 +5,23 @@ import './countrydata.scss';
 
 const CountryData = ({ theme, countryData }) => {
     const [borderCountries, setBorderCountries] = useState([]);
-
-    const getBoderCountries = () => {
-        try {
-            let endpoints = countryData.borders.map((alpha) => `https://restcountries.com/v2/alpha/${alpha}`);
-
-            axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((response)=> {
-                response.map((data) => {
-                    return setBorderCountries(prevValue => [...prevValue, data.data.name]);
-                });
-            });
-        } catch (error) {
-            setBorderCountries(["Not Have"])
-        }
-    }
     
     useEffect(() => {
+        const getBoderCountries = () => {
+            try {
+                let endpoints = countryData.borders.map((alpha) => `https://restcountries.com/v2/alpha/${alpha}`);
+    
+                axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((response)=> {
+                    response.map((data) => {
+                        return setBorderCountries(prevValue => [...prevValue, data.data.name]);
+                    });
+                });
+            } catch (error) {
+                setBorderCountries(["Not Have"])
+            }
+        }
         getBoderCountries();
-    });
+    }, [countryData.borders]);
 
     return (
         <div className="country-data">
