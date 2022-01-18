@@ -11,7 +11,7 @@ const Navbar = ({ theme, setTheme }) => {
 
 	return (
 		<div className="navbar">
-			<div className={`wrapper ${theme === "dark" && 'dark'}`}>
+			<div className={`wrapper ${theme === "dark" ? 'dark' : ''}`}>
 				<div className="title">
 					<Link to='/' className="home">
 						<span>Where in the world?</span>

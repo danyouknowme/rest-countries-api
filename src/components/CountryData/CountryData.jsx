@@ -22,7 +22,7 @@ const CountryData = ({ theme, countryData }) => {
     
     useEffect(() => {
         getBoderCountries();
-    }, []);
+    });
 
     return (
         <div className="country-data">

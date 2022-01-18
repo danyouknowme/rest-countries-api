@@ -24,7 +24,7 @@ const Search = ({ theme, region, setRegion, searchTerm, setSearchTerm }) => {
 
     return (
         <div className="search">
-            <div className={`wrapper ${theme === "dark" && "dark"}`}>
+            <div className={`wrapper ${theme === "dark" ? "dark" : ""}`}>
                 <div className="searchbox">
                     <FontAwesomeIcon icon={['fas', 'search']} />
                     <input type="text" placeholder="Search for a country..." onChange={countryOnChange} value={searchTerm}/>
@@ -34,9 +34,9 @@ const Search = ({ theme, region, setRegion, searchTerm, setSearchTerm }) => {
                         <span>{!region ? "Filter by Region" : region}</span>
                         <FontAwesomeIcon icon={['fas', 'chevron-down']} />
                     </div>
-                    <div className={`options ${openMenu && 'active'}`}>
+                    <div className={`options ${openMenu ? 'active' : ''}`}>
                         {options.map((region) => (
-                            <span onClick={() => handleChange(region.value)} className>{region.value}</span>
+                            <span onClick={() => handleChange(region.value)} key={region.value}>{region.value}</span>
                         ))}
                     </div>
                 </div>
